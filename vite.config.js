@@ -8,9 +8,17 @@ export default ({ mode }) => {
     return defineConfig({
         plugins: [
             laravel({
-                input: ["resources/css/app.scss", "resources/js/app.js"],
+                input: [
+                    "resources/css/app.css",
+                    "resources/css/styles.scss",
+                    "resources/js/app.js",
+                    "resources/js/partners.jsx",
+                    "resources/js/latest-books.js",
+                    "resources/js/book-search.js",
+                ],
                 refresh: true,
             }),
+            react(),
             {
                 // fixes URLs that start with / in CSS files
                 // make sure to have vite.loadEnv imported and APP_URL defined
@@ -28,7 +36,6 @@ export default ({ mode }) => {
                     }
                 },
             },
-            react(),
         ],
     });
 };

@@ -71,19 +71,4 @@ class BookController extends Controller
 
         return redirect()->route('admin.books.index');
     }
-
-    public function update(Request $request, $id)
-    {
-        $book = Book::findOrFail($id);
-
-        $book->format = $request->input('format');
-        $book->edition = $request->input('edition');
-        $book->pages = $request->input('pages');
-        $book->description = $request->input('description');
-        $book->save();
-
-        session()->flash('success_message', 'Book has been updated!');
-
-        return redirect()->route('admin.books.index');
-    }
 }
